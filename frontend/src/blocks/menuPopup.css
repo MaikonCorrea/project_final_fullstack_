@@ -1,0 +1,150 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00000080;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: 999;
+
+}
+
+.menu-popup {
+ position: sticky;
+  max-width: 560px;
+  width: 100%;
+  height: 286px;
+  box-shadow: 0px 0px 25px rgb(0, 0, 0);
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  }
+
+  .menu-popup__container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.512);
+    height: 56px;
+    padding: 16px 20px;
+  }
+
+  .menu-popup__title {
+    max-width: 200px;
+    height: 24px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .menu-popup__container-link {
+    max-width: 560px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    justify-content: space-between;
+  }
+
+  .menu-popup__link {
+    height: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 56px;
+    display: flex;
+    justify-content: flex-start;  
+    align-items: center;
+   
+  }
+  
+  .menu-popup__link--article {
+    width: 130px;
+  }
+
+  .menu-popup__link--home {
+    width: 68px;
+  }  
+  
+  .menu-popup__link--active-black {
+    color: rgb(136, 136, 136);
+  }
+  
+  .menu-popup__link--active-white {
+   color: rgb(136, 136, 136);
+  }
+  
+  .menu-popup__link:hover {
+    color: #ffffff9e;
+  }
+  
+  .menu-popup__link--active {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+  
+
+  .menu-popup__button__image-logout {
+    max-width: 24px;
+    height: 24px;
+  }
+  
+  .menu-popup__button_open {
+    max-width: 528px;
+    height: 55px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: 30px;
+    border: 1px solid #ffffff;
+    background-color: #00000000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  }
+
+ 
+  
+  .menu-popup__button__image-logout {
+    max-width: 24px;
+    height: 24px;
+  }
+  
+  .menu-popup__button_open:hover {
+   opacity: 0.5;
+  }
+  
+
+  .menu-popup__button-close {
+    border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  z-index: 9999;
+  }
+
+  .menu-popup__button-close:hover {
+    opacity: 0.5;
+   }
+
+  .popup_opened {
+    opacity: 1;
+    height: 100%;
+    transition: opacity 0.3s ease, height 0s ease;
+  }
+  .popup_closing {
+    animation: fadeOut 0.3s ease;
+  }
+  
+  

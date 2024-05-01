@@ -1,0 +1,39 @@
+.notfound { 
+    max-width: 1440px;
+    height: 374px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f5f6f7;
+    align-items: center;
+}  
+
+.notfound__image {
+    padding-bottom: 31px;
+  }
+
+  .notfound__title {
+    width: 358px;
+    height: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 30px;
+    text-align: center;
+    padding-bottom:16px;
+    color: #1A1B22;
+  }
+  
+  .notfound__paragraph {
+    width: 358px;
+    height: 48px;
+    padding-top:16px;
+    font-family: "Roboto", sans-serif ;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #B6BCBF;
+  }
+  

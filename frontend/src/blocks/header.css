@@ -1,0 +1,77 @@
+.header {
+  max-width: 1440px;
+  height: 578px;
+  padding-bottom: 80px;
+  background-image: url(../images/image_background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchForm__container {
+  width: 100%;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: flex-start;
+}
+
+.searchForm__container_title {
+  max-width: 702px;
+  height: 128px;
+  font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  margin: 0;
+}
+
+.searchForm__container_paragraph {
+  max-width: 608px;
+  font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 32px;
+}
+
+@media screen and (max-width: 920px) {
+  .header {
+    max-width: 920px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 768px;
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 536px) {
+  .header {
+    max-width: 520px;
+    height: 380px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .header {
+    max-width: 460px;
+    height: 522px;
+    padding-left: 0
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 320px;
+  }
+}

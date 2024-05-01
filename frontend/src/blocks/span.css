@@ -1,0 +1,24 @@
+.span {
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 5px;
+  width: 358px;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  color: #ff0000;
+  position: absolute;
+  margin-top: 10px;
+
+}
+
+
+.span__error {
+  border-bottom: 1px solid red;
+}
+
+@media screen and (max-width: 588px) {
+  .span {
+    width: 238px;
+    font-size: 0.65rem;
+  }
+}

@@ -1,0 +1,37 @@
+@import url(./vendor/normalize.css);
+
+@import url(./fonts/font.css);
+
+@import url(./blocks/animation.css);
+
+@import url(./blocks/root.css);
+
+@import url(./blocks/navigation.css);
+
+@import url(./blocks/header.css);
+
+@import url(./blocks/preloader.css);
+
+@import url(./blocks/notfound.css);
+
+@import url(./blocks/gallery.css);
+
+@import url(./blocks/newsCard.css);
+
+@import url(./blocks/article.css);
+
+@import url(./blocks/popupWhitForm.css);
+
+@import url(./blocks/popupInformation.css);
+
+@import url(./blocks/menuPopup.css);
+
+@import url(./blocks/span.css);
+
+@import url(./blocks/serchForm.css);
+
+@import url(./blocks/newsCardList.css);
+
+@import url(./blocks/about.css);
+
+@import url(./blocks/footer.css);

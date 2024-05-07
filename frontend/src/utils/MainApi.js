@@ -4,7 +4,6 @@
     this._token = token;
   }
   
-
   _fetch(url, options, token = this._token) {
     const fullUrl = `${this._baseUrl}${url}`;
     const headers = {
@@ -43,7 +42,6 @@
   deleteNews(id, token) {
     return this._fetch(`/news/${id}`, { method: "DELETE" }, token);
   }
-
 
 }
 

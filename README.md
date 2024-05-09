@@ -1,7 +1,7 @@
 # Project_final_fullstack_
 
 # Projeto de Página de Notícias
-    Este é um projeto dedicado à pesquisa de notícias do mundo em várias línguas, onde os usuários ao realizer o login, com email, senha e um nome, pode salvar notícias em seu perfil.
+Este é um projeto dedicado à pesquisa de notícias do mundo em várias línguas, onde os usuários ao realizer o login, com email, senha e um nome, pode salvar notícias em seu perfil.
 
 
 ### Acesse a página do projeto <a href= "https://www.maikonnewsexplorer.strangled.net" target="_blank">aqui</a>.

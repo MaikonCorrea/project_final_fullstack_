@@ -1,5 +1,5 @@
 const allowedOrigins = [
-  'http://maikonnewsexplorer.strangled.net',
+  'http://www.maikonnewsexplorer.strangled.net',
   'https://www.maikonnewsexplorer.strangled.net',
   'http://localhost:3000',
 ];

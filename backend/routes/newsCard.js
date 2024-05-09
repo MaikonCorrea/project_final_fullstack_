@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const validateUrl = require('../utils/validateURL');
-
-const { listNews, createNewsCard, deleteNews } = require('../controllers/newsCard');
+const {
+  listNews, createNewsCard, deleteNews,
+} = require('../controllers/newsCard');
 
 router.get('/news', celebrate({
   headers: Joi.object().keys({

@@ -13,8 +13,8 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ModalWithForm from "./ModalWithForm";
 import ModalInformation from "./ModalInformation";
-import clientApiNews from "../utils/NewsApi";
 import clientMainApi from "../utils/MainApi";
+import clientNewsApi from "../utils/NewsApi";
 import * as auth from "../utils/auth";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import CurrentNewsCardContext from "../contexts/CurrentNewsCardContext";
@@ -139,12 +139,12 @@ function App() {
         setNewsList([newNews, ...newsList]);
       });
   }
-
+  
   function handleSearchNews(text) {
     setIsLoading(true);
     setKeyword(text);
-    clientApiNews
-      .getNews(text)
+    clientNewsApi
+      .getSearchNews(text)
       .then((res) => {
         if (res.articles.length === 0) {
           setIsNotFound(true);

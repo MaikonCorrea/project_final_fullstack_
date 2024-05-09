@@ -18,6 +18,7 @@
 
 - **Node.js**: Certifique-se de ter o Node.js instalado localmente. Você pode baixá-lo em [nodejs.org](https://nodejs.org).
 - **MongoDB**: É necessário ter o MongoDB instalado localmente para o funcionamento do banco de dados. Você pode baixá-lo em [mongodb.com](https://www.mongodb.com/try/download/community).
+- **API de Notícias**: Você precisará de uma chave da API de notícias de terceiros. Recomendamos a [News API](https://newsapi.org/). 
 
 ## Configurações
 
@@ -44,6 +45,9 @@
   - `start`: Inicia o servidor Node.js.
   - `dev`: Inicia o servidor em modo de desenvolvimento com o Nodemon.
 
+- **Variável de Ambiente**:
+  - `TOKEN_API`: Esta variável é configurada em um arquivo `.env`. Seu conteúdo é um token gerado pela API de terceiros, que cada usuário recebe para usar em desenvolvimento.
+
 ### Frontend
 
 - **Dependências**:
@@ -55,6 +59,10 @@
 - **Scripts**:
   - `start`: Inicia o servidor de desenvolvimento.
   - `build`: Compila o projeto para produção.
+
+- **Variável de Ambiente**:
+  - `REACT_APP_BASE_URL_MAIN_API`: Crie um arquivo `.env` que terá uma variável com o valor `http://localhost:3000` para desenvolvimento.
+
 
 
 ## Executando o Projeto

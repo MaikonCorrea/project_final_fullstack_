@@ -1,8 +1,8 @@
 const NewsApi = require('../utils/NewsApi');
 
 const newsApi = new NewsApi({
-  baseUrl: process.env.REACT_APP_BASE_URL_API,
-  token: process.env.REACT_APP_TOKEN_API,
+  baseUrl: 'https://newsapi.org/v2/everything?',
+  token: process.env.TOKEN_API,
 });
 
 module.exports = {

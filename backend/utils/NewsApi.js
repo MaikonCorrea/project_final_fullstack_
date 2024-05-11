@@ -15,9 +15,8 @@ class NewsApi {
       const res = await fetch(fullUrl, { headers });
       if (res.ok) {
         return await res.json();
-      } else {
-        throw new Error(`Error: ${res.status}`);
       }
+      throw new Error(`Error: ${res.status}`);
     } catch (err) {
       console.error(`Falha na solicitação: ${err.message}`);
       throw err;
@@ -35,8 +34,13 @@ class NewsApi {
 
     const url = queryParams;
 
-    return await this._fetch(url);
+    return this._fetch(url);
   }
 }
 
-module.exports = NewsApi;
+const newsApiClient = new NewsApi({
+  baseUrl: 'https://newsapi.org/v2/everything?',
+  token: process.env.TOKEN_API,
+});
+
+module.exports = newsApiClient;

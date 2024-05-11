@@ -7,16 +7,16 @@ const usersRouter = require('./routes/users');
 const newsCardRouter = require('./routes/newsCard');
 const auth = require('./middleware/auth');
 const { createUser, login } = require('./controllers/users');
-const { getSearchNews } = require('./controllers/searchNews');
+const { getSearchNews } = require('./controllers/newsCard');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const NotFoundError = require('./errors/NotFaundError');
 
 const { PORT = 3000 } = process.env;
 const connectDatabase = require('./data/database');
+const allowedOrigins = require('./middleware/allowedCors');
 
 const app = express();
 connectDatabase();
-const allowedOrigins = require('./middleware/allowedCors');
 
 app.use(requestLogger);
 
@@ -61,6 +61,7 @@ app.post(
 
 app.get('/news/search', celebrate({
   headers: Joi.object().keys({
+    accept: Joi.string().valid('application/json').required(),
     'content-type': Joi.string().valid('application/json').required(),
   }).unknown(true),
   query: Joi.object().keys({

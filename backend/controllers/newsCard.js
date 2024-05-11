@@ -1,4 +1,5 @@
 const NewsCard = require('../models/newsCard');
+const newsApiClient = require('../utils/NewsApi');
 const ValidationError = require('../errors/ValidationError');
 const NotFoundError = require('../errors/NotFaundError');
 
@@ -68,6 +69,16 @@ module.exports = {
       }
 
       return res.status(200).json({ message: 'Card deleted successfully' });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getSearchNews: async (req, res, next) => {
+    const { keyword } = req.query;
+    try {
+      const newsData = await newsApiClient.getNews(keyword);
+      return res.status(200).json(newsData);
     } catch (error) {
       next(error);
     }

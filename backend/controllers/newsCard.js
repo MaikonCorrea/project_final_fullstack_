@@ -1,5 +1,5 @@
 const NewsCard = require('../models/newsCard');
-const newsApiClient = require('../utils/NewsApi');
+const newsApiClient = require('../utils/NewsClientApi');
 const ValidationError = require('../errors/ValidationError');
 const NotFoundError = require('../errors/NotFaundError');
 

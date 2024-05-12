@@ -1,4 +1,4 @@
-class NewsApi {
+class NewsClientApi {
   constructor({ baseUrl, token }) {
     this._baseUrl = baseUrl;
     this._token = token;
@@ -38,7 +38,7 @@ class NewsApi {
   }
 }
 
-const newsApiClient = new NewsApi({
+const newsApiClient = new NewsClientApi({
   baseUrl: 'https://newsapi.org/v2/everything?',
   token: process.env.TOKEN_API,
 });

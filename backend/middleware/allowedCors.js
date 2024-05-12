@@ -1,6 +1,2 @@
-const allowedOrigins = [
-  'https://vercelfrontend-maikoncorreas-projects.vercel.app/',
-  'https://vercelfrontend-e36go35zo-maikoncorreas-projects.vercel.app',
-  'http://localhost:3000',
-];
+const allowedOrigins = ['*'];
 module.exports = allowedOrigins;

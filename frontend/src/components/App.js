@@ -140,36 +140,36 @@ function App() {
       });
   }
   
-  function handleSearchNews(text) {
+  async function handleSearchNews(text) {
     setIsLoading(true);
     setKeyword(text);
-    clientNewsApi
-      .getSearchNews(text)
-      .then((res) => {
-        if (res.articles.length === 0) {
-          setIsNotFound(true);
-          setNewsSearch("");
-        } else {
-          setNewsSearch(res.articles);
-          setIsNotFound(false);
-        }
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 400) {
-          console.log(error);
-          console.error("Erro de solicitação inválida:", error.message);
-        } else if (error.response && error.response.status === 500) {
-          console.log(error);
-          console.error("Erro interno do servidor:", error.message);
-        } else {
-          console.log(error);
-          console.error("Ocorreu um erro:", error.message);
-        }
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+  
+    try {
+      const res = await clientNewsApi.getSearchNews(text);
+  
+      if (res.articles.length === 0) {
+        setIsNotFound(true);
+        setNewsSearch("");
+      } else {
+        setNewsSearch(res.articles);
+        setIsNotFound(false);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        console.log(error);
+        console.error("Erro de solicitação inválida:", error.message);
+      } else if (error.response && error.response.status === 500) {
+        console.log(error);
+        console.error("Erro interno do servidor:", error.message);
+      } else {
+        console.log(error);
+        console.error("Ocorreu um erro:", error.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   }
+  
   
   function handleDeletNews(id) {
     clientMainApi.deleteNews(id, localStorage.getItem("jwt")).then(() => {

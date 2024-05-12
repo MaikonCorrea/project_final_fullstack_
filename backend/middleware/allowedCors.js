@@ -1,6 +1,5 @@
 const allowedOrigins = [
-  'http://www.maikonnewsexplorer.strangled.net',
-  'https://www.maikonnewsexplorer.strangled.net',
+  'https://vercelfrontend-maikoncorreas-projects.vercel.app/',
   'http://localhost:3000',
 ];
 module.exports = allowedOrigins;

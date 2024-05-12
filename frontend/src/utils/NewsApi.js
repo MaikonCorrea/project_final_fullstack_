@@ -10,7 +10,8 @@ export class NewsApi {
         "Content-Type": "application/json",
       };
   
-        return fetch(fullUrl, { ...options, headers })
+      const mergedOptions = { headers, ...options };
+      return fetch(fullUrl, mergedOptions)
         .then((res) => {
           if (res.ok) {
             return res.json();

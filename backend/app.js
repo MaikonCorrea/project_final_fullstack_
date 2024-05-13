@@ -61,7 +61,6 @@ app.post(
 
 app.get('/news/search', celebrate({
   headers: Joi.object().keys({
-    accept: Joi.string().valid('application/json').required(),
     'content-type': Joi.string().valid('application/json').required(),
   }).unknown(true),
   query: Joi.object().keys({

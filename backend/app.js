@@ -7,14 +7,18 @@ const usersRouter = require('./routes/users');
 const newsCardRouter = require('./routes/newsCard');
 const auth = require('./middleware/auth');
 const { createUser, login } = require('./controllers/users');
+const { getSearchNews } = require('./controllers/newsCard');
+const { requestLogger, errorLogger } = require('./middleware/logger');
 const NotFoundError = require('./errors/NotFaundError');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const connectDatabase = require('./data/database');
+const allowedOrigins = require('./middleware/allowedCors');
 
 const app = express();
 connectDatabase();
-const allowedOrigins = require('./middleware/allowedCors');
+
+app.use(requestLogger);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -55,6 +59,15 @@ app.post(
   createUser,
 );
 
+app.get('/news/search', celebrate({
+  headers: Joi.object().keys({
+    'content-type': Joi.string().valid('application/json').required(),
+  }).unknown(true),
+  query: Joi.object().keys({
+    keyword: Joi.string().required(),
+  }),
+}), getSearchNews);
+
 app.use(auth);
 app.use('/', usersRouter);
 app.use('/', newsCardRouter);
@@ -63,6 +76,8 @@ app.use('/', (req, res, next) => {
   const notFoundError = new NotFoundError('Request was not found');
   return next(notFoundError);
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 

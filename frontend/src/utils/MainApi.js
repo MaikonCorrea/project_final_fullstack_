@@ -4,7 +4,6 @@
     this._token = token;
   }
   
-
   _fetch(url, options, token = this._token) {
     const fullUrl = `${this._baseUrl}${url}`;
     const headers = {
@@ -43,14 +42,10 @@
   deleteNews(id, token) {
     return this._fetch(`/news/${id}`, { method: "DELETE" }, token);
   }
-
-
-}
+  
+};
 
 export default new MainApi({
   baseUrl: process.env.REACT_APP_BASE_URL_MAIN_API,
   token: localStorage.getItem('jwt'),
 });
-
-
-

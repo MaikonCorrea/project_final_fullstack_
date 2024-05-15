@@ -1,13 +1,15 @@
-# Projeto Final Fullstack
+# Projeto Final Fullstack - Plataforma de Pesquisa de Notícias Globais
 
-Este projeto é uma plataforma de pesquisa de notícias globais em várias línguas, onde os usuários podem realizar o seu cadastro com e-mail, senha e nome. Após irá fazer o login com e-mail e senha. O cadastro serve para que possa salvar os artigos que lhe interessam no seu próprio perfil, podendo também excluí-los quando desejar.
+Este projeto final foi desenvolvido como parte do bootcamp, onde adquiri conhecimentos em várias tecnologias, incluindo HTML, CSS, JavaScript, Node.js, React.js e MongoDB. Durante o curso, aprendi sobre versionamento utilizando Git e GitHub, além de boas práticas de organização de código, como a metodologia BEM.
+
+Esta plataforma permite aos usuários realizar pesquisas de notícias globais em várias línguas. Os usuários podem se cadastrar com e-mail, senha e nome, e posteriormente fazer login para salvar artigos de seu interesse em seus perfis, podendo também excluí-los quando desejarem.
 
 ### Visite a página do projeto [aqui](https://vercelfrontend-maikoncorreas-projects.vercel.app/).
 
 ## Tecnologias Utilizadas
 
 - **Frontend**: React.js
-- **Backend**: Node.js (deployed on Render)
+- **Backend**: Node.js (implantado no Render)
 - **Banco de Dados**: MongoDB Atlas (ou MongoDB local)
 
 ## Pré-requisitos

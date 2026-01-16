@@ -30,7 +30,7 @@ export class NewsApi {
   }
 
   export default new NewsApi({
-    baseUrl: process.env.REACT_APP_BASE_URL_MAIN_API,
+    baseUrl: import.meta.env.VITE_BASE_URL_MAIN_API,
   });
   
  

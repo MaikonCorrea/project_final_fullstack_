@@ -1,5 +1,3 @@
-import React from "react";
-
 import imageAbout from "../images/image_about.png";
 
 export default function About() {

@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL_MAIN_API;
+const BASE_URL =import.meta.env.VITE_BASE_URL_MAIN_API;
 
 export const register = async ({ email, password, name }) => {
   return fetch(`${BASE_URL}/signup`, {

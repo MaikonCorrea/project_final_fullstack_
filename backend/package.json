@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint --fix .",
     "start": "node app.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon app.j"
   },
   "author": "",
   "license": "ISC",

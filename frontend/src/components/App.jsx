@@ -108,6 +108,7 @@ function App() {
   async function loginUser(email, password) {
     try {
       let response = await auth.authorize({ email, password });
+      console.log(response);
       if (!response.ok) {
         throw new Error("Credenciais inválidas");
       }

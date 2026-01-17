@@ -1,13 +1,32 @@
 const mongoose = require('mongoose');
 
-// Transformamos em função assíncrona para usar await
+// Variável para controlar o estado da conexão (importante para serverless/vercel futuramente)
+let isConnected = false;
+
 module.exports = async function connectDatabase() {
+  // Se já estiver conectado, reutiliza a conexão existente
+  if (isConnected) {
+    return;
+  }
+
   try {
-    await mongoose.connect(`mongodb+srv://maikonacorrea:${process.env.PASSWORD_MONGODB}@cluster0.dsxeka9.mongodb.net/newsexplorer?retryWrites=true&w=majority&appName=Cluster0`);
-    console.log('✅ Database Connected Successfully!');
+    // Pega a string completa do arquivo .env
+    const dbUri = process.env.MONGODB_URI;
+
+    if (!dbUri) {
+      throw new Error("A variável MONGODB_URI não está definida no arquivo .env");
+    }
+
+    // Conecta ao banco
+    await mongoose.connect(dbUri);
+    
+    isConnected = true;
+    console.log('✅ MongoDB Conectado com Sucesso!');
   } catch (err) {
-    console.error('❌ Database Connection Failed:', err.message);
-    // Encerra o processo se o banco não conectar, pois a API não serve sem banco
-    process.exit(1);
+    console.error('❌ Falha na conexão com MongoDB:', err.message);
+    // Encerra o app se não conseguir conectar na inicialização local
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1);
+    }
   }
 };

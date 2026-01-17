@@ -104,6 +104,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`App executado na porta ${PORT}`);
-});
+
+  app.listen(PORT, () => {
+    console.log(`App executado na porta ${PORT}`);
+  });
+
+module.exports = app;
+

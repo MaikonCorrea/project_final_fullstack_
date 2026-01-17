@@ -98,8 +98,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`App executado na porta ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`App executado na porta ${PORT}`);
+  });
+}
 
 module.exports = app;

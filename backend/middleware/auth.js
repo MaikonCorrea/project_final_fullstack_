@@ -1,15 +1,7 @@
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/UnauthorizedError');
 
-const developmentKey = 'chave_secreta_para_desenvolvimento';
-
-let jwtSecret;
-
-if (process.env.NODE_ENV === 'production') {
-  jwtSecret = process.env.JWT_SECRET;
-} else {
-  jwtSecret = developmentKey;
-}
+const jwtSecret = process.env.JWT_SECRET;
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const isEmail = require('validator/lib/isEmail'); // Caminho corrigido para ser mais robusto
-const UnauthorizedError = require('../errors/UnauthorizedError'); // <--- 1. IMPORTANTE: Faltava importar
+const isEmail = require('validator/lib/isEmail');
+const UnauthorizedError = require('../errors/UnauthorizedError');
 
 const userSchema = new mongoose.Schema(
   {
@@ -39,7 +39,6 @@ userSchema.statics.findUserByCredentials = function findUserByCredentials(email,
       }
       return bcrypt.compare(password, user.password)
         .then((matched) => {
-          // 3. MESMA COISA AQUI
           if (!matched) {
             return Promise.reject(new UnauthorizedError('Incorrect Email or Password!'));
           }

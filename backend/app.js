@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const helmet = require('helmet'); // Novo: Segurança de headers HTTP
-const rateLimit = require('express-rate-limit'); // Novo: Proteção contra força bruta
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const { errors, celebrate, Joi } = require('celebrate');
 const usersRouter = require('./routes/users');
@@ -19,24 +19,18 @@ const allowedOrigins = require('./middleware/allowedCors');
 const app = express();
 connectDatabase();
 
-// --- ÁREA DE SEGURANÇA (NOVO) ---
-app.use(helmet()); // Protege headers HTTP
+app.use(helmet());
 
-// Limita cada IP a 100 requisições a cada 15 minutos (evita DDoS e Brute Force)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
 });
 app.use(limiter);
-// --------------------------------
 
 app.use(requestLogger);
 
-// --- ATUALIZAÇÃO DO PARSER (MODIFICADO) ---
-// Substitui o body-parser antigo pelo nativo do Express
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// ------------------------------------------
 
 app.use(cors({ origin: allowedOrigins }));
 

@@ -1,8 +1,7 @@
 const NewsAPI = require('newsapi');
 
 const NewsCard = require('../models/newsCard');
-/* forma antiga de fazer diretamente pelo backend */
-/* const newsApiClient = require('../utils/NewsClientApi'); */
+
 const newsApiClient = new NewsAPI(process.env.NEWS_API_KEY);
 const ValidationError = require('../errors/ValidationError');
 const NotFoundError = require('../errors/NotFaundError');
@@ -84,10 +83,6 @@ module.exports = {
       const validationError = new ValidationError('Keyword is required');
       return next(validationError);
     }
-    /* try {
-      const newsData = await newsApiClient.getNews(keyword);
-      return res.status(200).json(newsData);
-    } */
     try {
       const response = await newsApiClient.v2.everything({
         q: keyword,

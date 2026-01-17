@@ -1,5 +1,5 @@
 const allowedOrigins = [
-  'https://vercelfrontend-maikoncorreas-projects.vercel.app',
+  'https://newsexplorerfrontend-seven.vercel.app',
   'http://localhost:3001',
 ];
 module.exports = allowedOrigins;

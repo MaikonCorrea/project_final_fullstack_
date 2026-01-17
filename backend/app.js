@@ -14,7 +14,7 @@ const NotFoundError = require('./errors/NotFaundError');
 
 const { PORT = 3000 } = process.env;
 const connectDatabase = require('./data/database');
-const allowedOrigins = require('./middleware/allowedCors');
+/* const allowedOrigins = require('./middleware/allowedCors'); */
 
 const app = express();
 connectDatabase();
@@ -32,7 +32,8 @@ app.use(requestLogger);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(cors({ origin: allowedOrigins }));
+app.use(cors()); // Deixa aberto para qualquer origem
+app.options('*', cors());
 
 app.post(
   '/signin',

@@ -143,7 +143,6 @@ function App() {
   async function handleSearchNews(text) {
     setIsLoading(true);
     setKeyword(text);
-  
     try {
       const res = await clientNewsApi.getSearchNews(text);
   

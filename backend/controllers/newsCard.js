@@ -1,5 +1,9 @@
+const NewsAPI = require('newsapi');
+
 const NewsCard = require('../models/newsCard');
-const newsApiClient = require('../utils/NewsClientApi');
+/* forma antiga de fazer diretamente pelo backend */
+/* const newsApiClient = require('../utils/NewsClientApi'); */
+const newsApiClient = new NewsAPI(process.env.NEWS_API_KEY);
 const ValidationError = require('../errors/ValidationError');
 const NotFoundError = require('../errors/NotFaundError');
 
@@ -76,9 +80,24 @@ module.exports = {
 
   getSearchNews: async (req, res, next) => {
     const { keyword } = req.query;
-    try {
+    if (!keyword) {
+      const validationError = new ValidationError('Keyword is required');
+      return next(validationError);
+    }
+    /* try {
       const newsData = await newsApiClient.getNews(keyword);
       return res.status(200).json(newsData);
+    } */
+    try {
+      const response = await newsApiClient.v2.everything({
+        q: keyword,
+        from: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+        to: new Date().toISOString(),
+        pageSize: 100,
+        language: 'pt',
+        sortBy: 'publishedAt',
+      });
+      res.send(response.articles);
     } catch (error) {
       next(error);
     }

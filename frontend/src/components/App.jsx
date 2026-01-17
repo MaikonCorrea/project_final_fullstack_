@@ -145,12 +145,11 @@ function App() {
     setKeyword(text);
     try {
       const res = await clientNewsApi.getSearchNews(text);
-  
-      if (res.articles.length === 0) {
+      if (res.length === 0) {
         setIsNotFound(true);
         setNewsSearch("");
-      } else {
-        setNewsSearch(res.articles);
+      } else { 
+        setNewsSearch(res);
         setIsNotFound(false);
       }
     } catch (error) {

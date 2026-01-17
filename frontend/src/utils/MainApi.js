@@ -15,7 +15,6 @@
     return fetch(fullUrl, mergedOptions)
       .then((res) => {
         if (res.ok) {
-          console.log(res.json())
           return res.json();
         } else {
           return Promise.reject(`Error: ${res.status}`);

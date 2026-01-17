@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NewsCard from "./NewsCard";
 
 export default function NewsCardList({
@@ -9,7 +9,6 @@ export default function NewsCardList({
   savedNews,
 }) {
   const [visibleNewsCount, setVisibleNewsCount] = useState(3);
-
   const hasNews = Array.isArray(news) && news.length > 0;
   const filteredArticles = hasNews
     ? news.filter(

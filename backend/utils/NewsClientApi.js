@@ -40,7 +40,7 @@ class NewsClientApi {
 
 const newsApiClient = new NewsClientApi({
   baseUrl: 'https://newsapi.org/v2/everything?',
-  token: process.env.TOKEN_API,
+  token: process.env.NEWS_API_KEY,
 });
 
 module.exports = newsApiClient;

@@ -14,12 +14,12 @@ module.exports = async function connectDatabase() {
     const dbUri = process.env.MONGODB_URI;
 
     if (!dbUri) {
-      throw new Error("A variável MONGODB_URI não está definida no arquivo .env");
+      throw new Error('A variável MONGODB_URI não está definida no arquivo .env');
     }
 
     // Conecta ao banco
     await mongoose.connect(dbUri);
-    
+
     isConnected = true;
     console.log('✅ MongoDB Conectado com Sucesso!');
   } catch (err) {

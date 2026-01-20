@@ -10,7 +10,6 @@ export default function ModalWithForm({
   errorMessage,
   clearError,
 }) {
-  console.log("Modo atual é Registo (Login=false)?", isSignUpForm);
   // --- Estados de UI ---
   const [shouldRenderPopup, setShouldRenderPopup] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -118,20 +117,13 @@ export default function ModalWithForm({
     } 
     else if (name === "password") {
       setPassword(value);
-      
-      // Atualiza checklist
-      const criteria = checkPasswordStrength(value, confirmPassword);
+            const criteria = checkPasswordStrength(value, confirmPassword);
       setPasswordCriteria(criteria);
-
-      // Define erro geral se necessário (opcional, já que temos o checklist)
-      // Se quiseres manter uma mensagem genérica de erro:
       setPasswordError(
          criteria.length && criteria.upper && criteria.lower && criteria.number && criteria.special 
          ? "" 
          : "A senha não atende aos requisitos."
       );
-      
-      // Verifica consistência com a confirmação
       if (confirmPassword && value !== confirmPassword) {
         setConfirmPasswordError("As senhas devem ser iguais");
         setPasswordCriteria(prev => ({...prev, match: false}));
@@ -160,8 +152,7 @@ export default function ModalWithForm({
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!isSignUpForm) { // Se for registro
-       // Validação final de segurança antes de enviar
+    if (!isSignUpForm) { 
        const allCriteriaMet = Object.values(passwordCriteria).every(Boolean);
        if(!allCriteriaMet) return; 
        registerUser(email, password, name);
@@ -169,15 +160,13 @@ export default function ModalWithForm({
        loginUser(email, password);
     }
   }
-
-  // Verifica se o formulário é válido para habilitar o botão
   const isFormValid = !isSignUpForm 
-    ? ( // Validação para Registro
+    ? ( 
         !emailError && email !== "" &&
         !nameError && name !== "" &&
-        Object.values(passwordCriteria).every(Boolean) // Todas as regras true
+        Object.values(passwordCriteria).every(Boolean)
       )
-    : ( // Validação para Login
+    : ( 
         !emailError && email !== "" &&
         password !== ""
       );
@@ -199,8 +188,6 @@ export default function ModalWithForm({
         <h2 className="popup__title">
           {!isSignUpForm ? "Inscrever-se" : "Entrar"}
         </h2>
-
-        {/* CAMPO EMAIL */}
         <div className="popup__container">
           <label className="popup__label">E-mail</label>
           <span className="span">{emailError}{errorMessage}</span>
@@ -298,7 +285,6 @@ export default function ModalWithForm({
            <button
   type="button"
   className="popup__link"
-  // 1. Adicionamos o 'e' aqui nos argumentos
   onClick={(e) => {
       setEmail(""); 
       setPassword(""); 
@@ -307,8 +293,6 @@ export default function ModalWithForm({
       setPasswordCriteria({
         length:false, upper:false, lower:false, number:false, special:false, match:false
       });
-      
-      // 2. IMPORTANTE: Passamos o 'e' para a função do pai
       toggleSignUpForm(e);
   }}
 >

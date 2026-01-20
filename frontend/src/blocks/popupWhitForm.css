@@ -8,29 +8,53 @@
   opacity: 0;
   height: 0;
   overflow: hidden;
+  /* Adicionado para permitir scroll se a tela for pequena */
+  overflow-y: auto; 
 }
 
 .popup__form {
   position: sticky;
   max-width: 430px;
-  height: 458px;
-  margin: auto;
-  top: 205px;
+  /* MUDANÇA: Usar min-height e height auto para crescer conforme o conteúdo */
+  min-height: 258px;
+  height: auto; 
+  margin: 50px auto; /* Margem ajustada para dar espaço em cima e em baixo */
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  row-gap: 28px;
+  row-gap: 20px; /* Reduzi um pouco o gap para caber tudo melhor */
   padding: 35px;
 }
 
 .popup__form.popup__form--small {
-  height: 380px;
+  /* Para o login, pode manter um tamanho menor se quiser, ou auto */
+  min-height: 380px;
 }
 
+/* --- NOVOS ESTILOS PARA O CHECKLIST --- */
+.popup__checklist {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.popup__checklist-item {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  width: 100%; /* Ocupa a linha toda ou ajusta conforme preferires */
+  display: flex;
+  align-items: center;
+}
+/* ------------------------------------- */
+
 .popup__title {
-  max-width: 150px;
+  max-width: 250px; /* Aumentei um pouco para não quebrar linha cedo demais */
   height: 32px;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
@@ -44,7 +68,8 @@
   display: flex;
   flex-direction: column;
   max-width: 358px;
-  height: 47px;
+  /* MUDANÇA: Removi height fixa para evitar corte se houver erro */
+  min-height: 47px; 
 }
 
 .popup__label {
@@ -53,6 +78,7 @@
   font-size: 12px;
   line-height: 15px;
   color: #2f71e5;
+  margin-bottom: 5px;
 }
 
 .popup__input {
@@ -71,10 +97,20 @@
   border-bottom: 1px solid #000000;
 }
 
+/* Span de erro */
+.span {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    color: red;
+    min-height: 12px; /* Reserva espaço para o erro não pular o layout */
+    margin-top: 2px;
+}
+
 input:-webkit-autofill {
   -webkit-text-fill-color: #000000;
   -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
 }
+
 .popup__button-confirm {
   max-width: 360px;
   width: 100%;
@@ -83,7 +119,7 @@ input:-webkit-autofill {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: #2f71e5;
   border: none;
   border-radius: 30px;
@@ -124,7 +160,6 @@ input:-webkit-autofill {
   border: none;
   background-color: #bcbcc400;
   cursor: pointer;
-
 }
 
 .popup__link:hover {
@@ -136,7 +171,7 @@ input:-webkit-autofill {
 }
 
 .popup__button_close {
-  background-image: url(../images/icon_close.png);
+  background-image: url(../images/icon_close.png); /* Verifica se o caminho está correto */
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -159,31 +194,22 @@ input:-webkit-autofill {
   height: 100%;
   transition: opacity 0.3s ease, height 0s ease;
 }
+
 .popup_closing {
   animation: fadeOut 0.3s ease;
 }
-
 
 @media screen and (max-width: 530px) {
   .popup__button_close {
     top: -46px;
     right: 15px;
-
   }
 }
 
-
 @media screen and (max-width: 465px) {
-.popup {
-
-}
-
-.popup__form {
-  top: 56px;
-  height: 536px;
-}
-
-.popup__form.popup__form--small {
-  height: 536px;
-}
+  .popup__form {
+    /* Em mobile, ajustar margens */
+    margin: 20px auto; 
+    width: 90%;
+  }
 }

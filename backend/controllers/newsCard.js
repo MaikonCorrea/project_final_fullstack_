@@ -20,7 +20,7 @@ module.exports = {
     const linkRegex = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/;
     const isValidLink = url.match(linkRegex);
     if (!isValidLink) {
-      const validationError = new ValidationError('ink entered is not valid');
+      const validationError = new ValidationError('Link entered is not valid');
       return next(validationError);
     }
     const owner = req.user._id;
@@ -88,7 +88,7 @@ module.exports = {
         q: keyword,
         from: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
         to: new Date().toISOString(),
-        pageSize: 100,
+        pageSize: 20,
         language: 'pt',
         sortBy: 'publishedAt',
       });

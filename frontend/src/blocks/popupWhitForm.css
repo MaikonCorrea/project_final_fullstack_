@@ -8,32 +8,28 @@
   opacity: 0;
   height: 0;
   overflow: hidden;
-  /* Adicionado para permitir scroll se a tela for pequena */
   overflow-y: auto; 
 }
 
 .popup__form {
   position: sticky;
   max-width: 430px;
-  /* MUDANÇA: Usar min-height e height auto para crescer conforme o conteúdo */
   min-height: 258px;
   height: auto; 
-  margin: 50px auto; /* Margem ajustada para dar espaço em cima e em baixo */
+  margin: 50px auto; 
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  row-gap: 20px; /* Reduzi um pouco o gap para caber tudo melhor */
+  row-gap: 20px;
   padding: 35px;
 }
 
 .popup__form.popup__form--small {
-  /* Para o login, pode manter um tamanho menor se quiser, ou auto */
   min-height: 380px;
 }
 
-/* --- NOVOS ESTILOS PARA O CHECKLIST --- */
 .popup__checklist {
   list-style: none;
   padding: 0;
@@ -47,11 +43,10 @@
   font-family: "Inter", sans-serif;
   font-size: 11px;
   line-height: 14px;
-  width: 100%; /* Ocupa a linha toda ou ajusta conforme preferires */
+  width: 100%;
   display: flex;
   align-items: center;
 }
-/* ------------------------------------- */
 
 .popup__title {
   max-width: 250px; /* Aumentei um pouco para não quebrar linha cedo demais */
@@ -68,7 +63,6 @@
   display: flex;
   flex-direction: column;
   max-width: 358px;
-  /* MUDANÇA: Removi height fixa para evitar corte se houver erro */
   min-height: 47px; 
 }
 
@@ -97,7 +91,6 @@
   border-bottom: 1px solid #000000;
 }
 
-/* Span de erro */
 .span {
     font-family: "Inter", sans-serif;
     font-size: 10px;
@@ -171,18 +164,18 @@ input:-webkit-autofill {
 }
 
 .popup__button_close {
-  background-image: url(../images/icon_close.png); /* Verifica se o caminho está correto */
+  background-image: url(../images/icon_close_black.png); /* Verifica se o caminho está correto */
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
   background-color: #00000000;
   border: none;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  right: -35px;
-  top: -35px;
+  right: 9px;
+  top: 9px;
 }
 
 .popup__button_close:hover {
@@ -201,15 +194,17 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 530px) {
   .popup__button_close {
-    top: -46px;
-    right: 15px;
+    top: 9px;
+    right: 10px;
+    width: 16px;
+    height: 16px
   }
 }
 
 @media screen and (max-width: 465px) {
   .popup__form {
     /* Em mobile, ajustar margens */
-    margin: 20px auto; 
+    margin: 50px auto; 
     width: 90%;
   }
 }
